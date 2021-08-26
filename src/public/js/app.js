@@ -1,3 +1,4 @@
+/*
 const messageList = document.querySelector("ul");
 const nickForm = document.querySelector("#nick");
 const messageForm = document.querySelector("#message");
@@ -39,4 +40,19 @@ nickForm.addEventListener("submit", (event) => {
     socket.send(makeMessage("nickname", input.value));
     input.value = "";
 
+})
+
+
+*/
+
+const socket = io();
+
+const welcome = document.getElementById("welcome")
+const form = welcome.querySelector("form");
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const input = form.querySelector("input");
+    socket.emit("room", { payload: input.value });
+    input.value = ""
 })
