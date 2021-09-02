@@ -18,6 +18,9 @@ const io = SocketIO(server);
 io.on("connection", socket => {
     socket.on("room", (msg) => {
         console.log(msg);
+        setTimeout(() => {
+            done();
+        }, 10000);
     });
 })
 

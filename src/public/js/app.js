@@ -53,6 +53,8 @@ const form = welcome.querySelector("form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const input = form.querySelector("input");
-    socket.emit("room", { payload: input.value });
+    socket.emit("room", { payload: input.value }, () => {
+        console.log("server is done!");
+    });
     input.value = ""
 })
